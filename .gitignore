@@ -1,0 +1,21 @@
+# 依存パッケージ
+node_modules/
+
+# ビルド成果物
+dist/
+dist-ssr/
+
+# 環境変数（秘密情報を含むため絶対にコミットしない）
+.env
+.env.local
+.env.*.local
+
+# エディタ・OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ログ
+*.log
+npm-debug.log*

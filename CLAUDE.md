@@ -47,10 +47,54 @@ git push origin main
 - `node_modules/` や `.next/` などビルド成果物はコミットしない
 - 強制プッシュ (`git push --force`) は原則禁止
 
-## 開発環境
+## 技術スタック
 
-（プロジェクト初期化後に追記する）
+| 分類 | 技術 |
+|---|---|
+| フレームワーク | React 19 + Vite 6 |
+| 認証・DB | Supabase |
+| ルーティング | React Router v7 |
+| スタイリング | CSS Modules |
+
+## プロジェクト構成
+
+```
+src/
+├── lib/
+│   └── supabaseClient.js   # Supabaseクライアント初期化
+├── contexts/
+│   └── AuthContext.jsx     # 認証状態の管理（ログイン・登録・ログアウト）
+├── components/
+│   └── PrivateRoute.jsx    # 未ログイン時のリダイレクト処理
+├── pages/
+│   ├── Login.jsx           # ログイン画面
+│   ├── Register.jsx        # 会員登録画面
+│   ├── Auth.module.css     # 認証画面共通スタイル
+│   ├── Properties.jsx      # 物件一覧画面
+│   └── Properties.module.css
+├── App.jsx                 # ルーティング設定
+├── main.jsx                # エントリーポイント
+└── index.css               # グローバルスタイル
+```
+
+## 環境変数
+
+`.env` ファイルに以下を設定する（`.gitignore` で除外済み）:
+
+```
+VITE_SUPABASE_URL=<SupabaseのProject URL>
+VITE_SUPABASE_ANON_KEY=<SupabaseのPublishable key>
+```
 
 ## コマンド
 
-（プロジェクト初期化後に追記する）
+```bash
+# 開発サーバー起動（http://localhost:5173）
+npm run dev
+
+# 本番ビルド
+npm run build
+
+# ビルド結果のプレビュー
+npm run preview
+```
