@@ -86,6 +86,11 @@ VITE_SUPABASE_URL=<SupabaseのProject URL>
 VITE_SUPABASE_ANON_KEY=<SupabaseのPublishable key>
 ```
 
+## デプロイ情報
+
+- 本番URL：https://プロジェクト名.vercel.app
+- Supabaseプロジェクト名：realestate-app
+
 ## コマンド
 
 ```bash
