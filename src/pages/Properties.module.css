@@ -64,11 +64,18 @@
   padding: 2rem 1.5rem;
 }
 
+/* タイトル行（左側: タイトル＋件数、右側: 登録ボタン） */
 .titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.titleLeft {
   display: flex;
   align-items: baseline;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
 }
 
 .pageTitle {
@@ -81,6 +88,43 @@
 .count {
   font-size: 0.875rem;
   color: #6b7280;
+}
+
+/* 新規登録ボタン */
+.addButton {
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.addButton:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* エラーメッセージ */
+.errorText {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+}
+
+/* ローディング・空状態テキスト */
+.stateText {
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 4rem;
 }
 
 /* 物件カードグリッド */
@@ -98,7 +142,6 @@
   border: 1px solid #e5e7eb;
   transition: box-shadow 0.2s, transform 0.2s;
   position: relative;
-  overflow: hidden;
 }
 
 .card:hover {
@@ -106,7 +149,7 @@
   transform: translateY(-2px);
 }
 
-/* 物件タイプのバッジ */
+/* 間取りバッジ */
 .badge {
   display: inline-block;
   padding: 0.2rem 0.625rem;
@@ -126,8 +169,7 @@
   line-height: 1.5;
 }
 
-.area,
-.size {
+.area {
   font-size: 0.875rem;
   color: #6b7280;
   margin: 0 0 0.375rem;
@@ -151,4 +193,148 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #667eea;
+}
+
+/* カード内の編集・削除ボタン行 */
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.editButton {
+  flex: 1;
+  padding: 0.4rem 0;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.editButton:hover {
+  background: #e5e7eb;
+}
+
+.deleteButton {
+  flex: 1;
+  padding: 0.4rem 0;
+  background: #fff;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #dc2626;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+}
+
+/* モーダルオーバーレイ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+/* モーダル本体 */
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1.5rem;
+}
+
+/* フォーム */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ラベル + インプットを縦並びにするラッパー */
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input {
+  padding: 0.6rem 0.875rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #667eea;
+}
+
+/* フォームのボタン行 */
+.formActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.cancelButton {
+  flex: 1;
+  padding: 0.6rem 0;
+  background: #fff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancelButton:hover {
+  background: #f9fafb;
+}
+
+.submitButton {
+  flex: 2;
+  padding: 0.6rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submitButton:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
