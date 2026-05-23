@@ -19,3 +19,6 @@ Thumbs.db
 # ログ
 *.log
 npm-debug.log*
+
+# Claude Code
+.claude/
